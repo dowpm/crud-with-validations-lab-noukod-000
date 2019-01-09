@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show, :create, :edit, :update]
+  before_action :set_song, only: [:show, :edit, :update]
   def index
     @songs = Song.all
   end
@@ -13,7 +13,7 @@ class SongsController < ApplicationController
   end
 
   def create
-
+    @song = Song.create song_params
     redirect_to song_path(@song)
   end
 
@@ -30,5 +30,9 @@ class SongsController < ApplicationController
 
   def set_song
     @song = Song.find params[:id]
+  end
+
+  def song_params
+    params.require(:song).permit( :title, :release_year, :released, :genre, :artist_name)
   end
 end
