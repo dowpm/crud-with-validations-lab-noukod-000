@@ -13,12 +13,17 @@ class SongsController < ApplicationController
   end
 
   def create
+
+    redirect_to song_path(@song)
   end
 
   def edit
   end
 
   def update
+  end
+
+  def delete
   end
 
   private
