@@ -8,6 +8,9 @@ class SongsController < ApplicationController
 
   end
 
+  def edit
+  end
+
   private
 
   def set_song
